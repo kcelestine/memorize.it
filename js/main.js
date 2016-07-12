@@ -1,9 +1,10 @@
 var entryForm = document.getElementById('entryForm');
-var listSelector = document.getElementById("listSelector");
-var listTitle = document.getElementById("listTitle");
+var listSelector = document.getElementById('listSelector');
+var listTitle = document.getElementById('listTitle');
 var itemsLeft = document.getElementById('itemsLeft');
 
 entryForm.addEventListener("submit", enter);
+listSelector.addEventListener('change', updateTitle);
 
 function isCorrect(input) {
   lists.books[current].toLowerCase() === input.toLowerCase();
@@ -29,4 +30,11 @@ function enter(event) {
 function setEntryFeedback(text, color){
   entryFeedback.innerHTML = text;
   entryFeedback.style.color = color;
+}
+
+function updateTitle(event) { 
+  var selectedList = listSelector.options[listSelector.selectedIndex].value;
+  console.log('selected', lists[selectedList]);
+  console.log('selected', lists[selectedList].length);
+  itemsLeft.innerHTML = lists[selectedList].length;
 }
