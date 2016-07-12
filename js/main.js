@@ -3,11 +3,12 @@ var listSelector = document.getElementById('listSelector');
 var listTitle = document.getElementById('listTitle');
 var itemsLeft = document.getElementById('itemsLeft');
 
+var list;
 entryForm.addEventListener("submit", enter);
-listSelector.addEventListener('change', updateTitle);
+listSelector.addEventListener('change', selectList);
 
 function isCorrect(input) {
-  lists.books[current].toLowerCase() === input.toLowerCase();
+  list[current].toLowerCase() === input.toLowerCase();
 }
 
 function enter(event) {
@@ -15,7 +16,7 @@ function enter(event) {
     var entryFeedback = document.getElementById('entryFeedback');
     var entries = document.getElementById('entries');
     var current = 0;
-    if (lists.books[current] === entry.value) {
+    if (list[current] === entry.value) {
       current++;
       setEntryFeedback('correct', 'green');
       entries.innerHTML += '<tr><td></td><td>' + entry.value + '</td></tr>';
@@ -32,8 +33,9 @@ function setEntryFeedback(text, color){
   entryFeedback.style.color = color;
 }
 
-function updateTitle(event) { 
+function selectList(event) { 
   var selectedList = listSelector.options[listSelector.selectedIndex].value;
+  list = selectedList;
   console.log('selected', lists[selectedList]);
   console.log('selected', lists[selectedList].length);
   itemsLeft.innerHTML = lists[selectedList].length;
