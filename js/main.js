@@ -2,8 +2,8 @@ var entryForm = document.getElementById('entryForm');
 var listSelector = document.getElementById('listSelector');
 var listTitle = document.getElementById('listTitle');
 var itemsLeft = document.getElementById('itemsLeft');
-
-var list;
+//very hacky come on!
+var list = ["genesis", "exodus", "leviticus", "numbers", "deuteronomy", "joshua", "judges", "ruth"];
 entryForm.addEventListener("submit", enter);
 listSelector.addEventListener('change', selectList);
 
