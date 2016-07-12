@@ -36,7 +36,6 @@ function setEntryFeedback(text, color){
 function selectList(event) { 
   var selectedList = listSelector.options[listSelector.selectedIndex].value;
   list = selectedList;
-  console.log('selected', lists[selectedList]);
-  console.log('selected', lists[selectedList].length);
   itemsLeft.innerHTML = lists[selectedList].length;
+  listTitle.innerHTML = selectedList;
 }
