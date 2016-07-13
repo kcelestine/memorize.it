@@ -10,16 +10,22 @@ listSelector.addEventListener('change', selectList);
 function isCorrect(input) {
   list[current].toLowerCase() === input.toLowerCase();
 }
-
+var current = 0;
+var itemsLeftValue = list.length;
 function enter(event) {
     var entry = document.getElementById('newEntry');
     var entryFeedback = document.getElementById('entryFeedback');
     var entries = document.getElementById('entries');
-    var current = 0;
+    if (itemsLeftValue === 0){
+      console.log('you win');
+      //displayResetButton();
+    }
     if (list[current] === entry.value) {
       current++;
+      itemsLeftValue--;
       setEntryFeedback('correct', 'green');
       entries.innerHTML += '<tr><td></td><td>' + entry.value + '</td></tr>';
+      itemsLeft.innerHTML = itemsLeftValue;
     } else {
       setEntryFeedback('wrong', 'red');
     }
@@ -36,6 +42,7 @@ function setEntryFeedback(text, color){
 function selectList(event) { 
   var selectedList = listSelector.options[listSelector.selectedIndex].value;
   list = selectedList;
-  itemsLeft.innerHTML = lists[selectedList].length;
+  itemsLeftValue = lists[selectedList].length;
+  itemsLeft.innerHTML = itemsLeftValue;
   listTitle.innerHTML = selectedList;
 }
