@@ -1,4 +1,5 @@
 # Memorize Game
+[kcelestine.github.io/memorize.it](https://kcelestine.github.io/memorize.it/) 
 
 #### The goal
 A simple app that allows users to remember a list of things.
